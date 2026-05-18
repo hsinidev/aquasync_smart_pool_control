@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#1f1c0b",
+                    "surface-tint": "#005cbc",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f9f9ff",
+                    "on-secondary-container": "#68634d",
+                    "on-tertiary-fixed": "#351000",
+                    "tertiary": "#9d3f00",
+                    "primary-fixed": "#d7e2ff",
+                    "on-surface": "#181c23",
+                    "on-tertiary-container": "#fffbff",
+                    "secondary-container": "#e8dfc5",
+                    "on-surface-variant": "#414754",
+                    "on-primary-fixed": "#001b3f",
+                    "surface-dim": "#d7dae4",
+                    "on-secondary": "#ffffff",
+                    "background": "#f9f9ff",
+                    "outline": "#717786",
+                    "tertiary-container": "#c45100",
+                    "primary-fixed-dim": "#abc7ff",
+                    "surface-container-high": "#e6e8f3",
+                    "secondary-fixed": "#ebe2c8",
+                    "tertiary-fixed": "#ffdbcc",
+                    "surface": "#f9f9ff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb693",
+                    "on-tertiary-fixed-variant": "#7a2f00",
+                    "on-secondary-fixed-variant": "#4c4733",
+                    "surface-variant": "#e0e2ed",
+                    "surface-container-low": "#f1f3fe",
+                    "on-primary-fixed-variant": "#004590",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#c1c6d7",
+                    "inverse-on-surface": "#eef0fb",
+                    "secondary": "#645e49",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#abc7ff",
+                    "surface-container-highest": "#e0e2ed",
+                    "surface-container": "#ebedf8",
+                    "primary": "#005ab7",
+                    "primary-container": "#0072e5",
+                    "secondary-fixed-dim": "#cec6ad",
+                    "on-primary-container": "#fefcff",
+                    "on-background": "#181c23",
+                    "inverse-surface": "#2d3039"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "margin-desktop": "40px",
+                    "lg": "48px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "margin-mobile": "16px",
+                    "gutter": "20px",
+                    "md": "24px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "stat-value": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-caps": ["Manrope"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "stat-value": ["40px", {"lineHeight": "48px", "fontWeight": "300"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 90, 183, 0.1);
+        }
+        .ripple-effect:active {
+            transform: scale(0.98);
+            transition: transform 0.1s;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e0e2ed;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- SideNavBar Shell -->
+<aside class="bg-surface-container-lowest dark:bg-surface-dim shadow-sm h-screen w-72 flex flex-col fixed left-0 top-0 py-md px-sm z-50">
+<div class="flex items-center gap-sm mb-xl px-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">waves</span>
+<div>
+<h1 class="font-display-lg text-headline-md font-bold text-primary dark:text-primary-fixed leading-tight">Aqua-Sync</h1>
+<p class="text-on-surface-variant text-[12px] opacity-70">Pool &amp; Spa Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-xs">
+<!-- Dashboard Tab -->
+<a class="flex items-center gap-md p-sm rounded-xl transition-colors duration-200 text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high ripple-effect" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<!-- Admin Tab (Active) -->
+<a class="flex items-center gap-md p-sm rounded-xl transition-colors duration-200 text-primary dark:text-primary-fixed font-bold border-r-4 border-primary dark:border-primary-fixed bg-surface-container-low ripple-effect" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<span class="font-body-md">Admin</span>
+</a>
+<!-- Community Tab -->
+<a class="flex items-center gap-md p-sm rounded-xl transition-colors duration-200 text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high ripple-effect" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md">Community</span>
+</a>
+<!-- FAQ Tab -->
+<a class="flex items-center gap-md p-sm rounded-xl transition-colors duration-200 text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high ripple-effect" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md">FAQ</span>
+</a>
+</nav>
+<button class="mt-auto flex items-center justify-center gap-sm bg-primary text-on-primary py-md rounded-full font-bold ripple-effect">
+<span class="material-symbols-outlined">settings</span>
+<span>System Settings</span>
+</button>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-72 min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm h-20 sticky top-0 flex justify-between items-center px-margin-desktop w-full z-40">
+<div class="flex items-center gap-md w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary/20 text-body-md" placeholder="Search diagnostics or logs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">thermostat</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">waves</button>
+</div>
+<div class="flex items-center gap-sm border-l border-outline-variant pl-lg">
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary/20" data-alt="A professional portrait of a senior pool maintenance administrator. He has a warm, confident expression and is wearing a crisp white linen shirt. The background is a soft-focus tropical pool setting with shimmering azure water under bright, midday sun. The overall lighting is clean and high-key, reflecting a luxury wellness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQP4MOmX9CP0PEg5FEGdo1ezVtfJJ5mmb95aZkJVT3v5DWmPB_VhgJAfG0EH68BBRDfYZsMWRqvHNpeuUeIfRfJ2J7Vc1bpfGWjFXiJ32hAwpPjqeNTvsKqSmWZFsGFGMsy02_uYY0tF7NREIqsMahXFNWM6XN18dtRKdc3Yc-rO2igct77lWrHTNegkxyX5eE06YJ7ZDa81uxcL_QcZecdwFT5uUESP0cwEnIfjYArIdcJS7tdTDGEA7OhakdiwRGqT36RjvFZkc"/>
+<div class="hidden lg:block">
+<p class="font-bold text-sm leading-none">James Miller</p>
+<p class="text-xs text-on-surface-variant">System Admin</p>
+</div>
+</div>
+</div>
+</header>
+<div class="p-margin-desktop space-y-lg">
+<!-- Page Title Section -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-headline-lg text-on-surface">Advanced System Admin</h2>
+<p class="text-on-surface-variant font-body-lg">Real-time hardware integrity and access control.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-md py-sm bg-secondary-fixed text-on-secondary-fixed rounded-full font-bold flex items-center gap-xs ripple-effect">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Export Logs</span>
+</button>
+<button class="px-md py-sm bg-primary text-on-primary rounded-full font-bold flex items-center gap-xs ripple-effect shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Invite Member</span>
+</button>
+</div>
+</div>
+<!-- Top Diagnostics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<!-- Pump Health Glass Card -->
+<div class="lg:col-span-2 glass-card p-md rounded-2xl flex flex-col gap-md">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">vital_signs</span>
+</div>
+<div>
+<p class="text-label-caps text-on-surface-variant">MAIN PUMP STATUS</p>
+<p class="font-bold text-headline-md">Optimal Health</p>
+</div>
+</div>
+<span class="px-sm py-xs bg-emerald-100 text-emerald-700 rounded-full text-[12px] font-bold">98% Efficient</span>
+</div>
+<div class="grid grid-cols-2 gap-md mt-sm">
+<div class="bg-surface-container-low p-sm rounded-xl">
+<p class="text-xs text-on-surface-variant">Current RPM</p>
+<p class="font-stat-value text-primary">2,850</p>
+<div class="w-full bg-outline-variant h-1 rounded-full mt-xs overflow-hidden">
+<div class="bg-primary h-full w-[70%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded-xl">
+<p class="text-xs text-on-surface-variant">Power Draw</p>
+<p class="font-stat-value text-primary">0.8<span class="text-body-md font-normal ml-xs">kW</span></p>
+<div class="w-full bg-outline-variant h-1 rounded-full mt-xs overflow-hidden">
+<div class="bg-primary h-full w-[40%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Pressure Card -->
+<div class="glass-card p-md rounded-2xl flex flex-col justify-between">
+<div class="flex justify-between items-center">
+<p class="text-label-caps text-on-surface-variant">FILTER PRESSURE</p>
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+</div>
+<div class="relative py-md flex items-center justify-center">
+<svg class="w-32 h-32 transform -rotate-90">
+<circle class="text-surface-variant" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="100" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-stat-value text-headline-lg">18</span>
+<span class="text-xs font-bold uppercase tracking-widest">PSI</span>
+</div>
+</div>
+<p class="text-center text-xs font-bold text-on-surface-variant">Next Backwash: 4 Days</p>
+</div>
+<!-- Hardware Config Quick View -->
+<div class="glass-card p-md rounded-2xl bg-primary text-on-primary">
+<p class="text-label-caps opacity-80">HARDWARE CONFIG</p>
+<div class="mt-md space-y-sm">
+<div class="flex justify-between items-center border-b border-white/20 pb-xs">
+<span class="text-sm">Controller</span>
+<span class="text-sm font-bold">v4.2.1-Gold</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/20 pb-xs">
+<span class="text-sm">WiFi Strength</span>
+<span class="material-symbols-outlined text-sm">wifi</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/20 pb-xs">
+<span class="text-sm">Uptime</span>
+<span class="text-sm font-bold">142 Days</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Sensors</span>
+<span class="text-sm font-bold">6 Active</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Section: User Management & System Logs -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter items-start">
+<!-- User Management Table (2/3 width) -->
+<div class="lg:col-span-2 glass-card rounded-2xl overflow-hidden">
+<div class="p-md border-b border-outline-variant flex justify-between items-center bg-surface-container-low/50">
+<h3 class="font-bold text-headline-md">Access Control</h3>
+<div class="flex gap-sm">
+<span class="text-sm text-on-surface-variant">4 Active Members</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-label-caps text-on-surface-variant bg-surface-container-low/30">
+<th class="px-md py-sm">User</th>
+<th class="px-md py-sm">Role</th>
+<th class="px-md py-sm">Last Access</th>
+<th class="px-md py-sm">Status</th>
+<th class="px-md py-sm">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<tr>
+<td class="px-md py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-xs">JM</div>
+<div>
+<p class="font-bold text-sm">James Miller</p>
+<p class="text-xs text-on-surface-variant">james.m@aqua-sync.com</p>
+</div>
+</div>
+</td>
+<td class="px-md py-md text-sm">Owner</td>
+<td class="px-md py-md text-sm">2 mins ago</td>
+<td class="px-md py-md">
+<span class="px-sm py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase">Active</span>
+</td>
+<td class="px-md py-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr>
+<td class="px-md py-md">
+<div class="flex items-center gap-sm">
+<img alt="Staff Member" class="w-8 h-8 rounded-full object-cover" data-alt="A professional woman with curly dark hair and a friendly, focused gaze. She is wearing a modern teal blazer and is set against a clean, architectural office background with soft shadows and natural morning light. The composition is professional and crisp, mirroring a high-end corporate identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbG7otJaq7NlxtMjy0Q7deWQRgJ3kZHQUPdLC8JjyoZDyMU_i67I1ff41dLdXcue3nK0BwU4ELvk_D4FDGwnyVqnIWEy-UW602DXH625_l9BHSg9Atw2aAj9iyk-W_6aIGS6uCLB_P10mZATnZ1POcYSKx9bpVs0PFVG2e3PtCZ513-LXT5hWVZ6h19CizYW5CtaIzsVATcIPT4EEfIuW8gfdw20mv5XcLsnDzpX6WlpEGerf6cEuSeiwfPvzON4QkSgvp03MGo0Y"/>
+<div>
+<p class="font-bold text-sm">Sarah Chen</p>
+<p class="text-xs text-on-surface-variant">s.chen@poolpros.io</p>
+</div>
+</div>
+</td>
+<td class="px-md py-md text-sm">Pool Professional</td>
+<td class="px-md py-md text-sm">Yesterday</td>
+<td class="px-md py-md">
+<span class="px-sm py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase">Active</span>
+</td>
+<td class="px-md py-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr>
+<td class="px-md py-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center font-bold text-xs">AM</div>
+<div>
+<p class="font-bold text-sm">Alex Miller</p>
+<p class="text-xs text-on-surface-variant">alex@home.com</p>
+</div>
+</div>
+</td>
+<td class="px-md py-md text-sm">Family Member</td>
+<td class="px-md py-md text-sm">4 days ago</td>
+<td class="px-md py-md">
+<span class="px-sm py-1 bg-surface-variant text-on-surface-variant text-[10px] font-bold rounded-full uppercase">Inactive</span>
+</td>
+<td class="px-md py-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- System Logs (1/3 width) -->
+<div class="glass-card rounded-2xl h-full flex flex-col">
+<div class="p-md border-b border-outline-variant flex items-center justify-between">
+<h3 class="font-bold text-headline-md">Automated Events</h3>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">history</span>
+</div>
+<div class="p-md space-y-md flex-1 custom-scrollbar overflow-y-auto max-h-[400px]">
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-primary ring-4 ring-primary/10"></div>
+<div class="w-px h-full bg-outline-variant/30 mt-xs"></div>
+</div>
+<div class="pb-md">
+<p class="text-xs font-bold text-on-surface-variant">10:14 AM Today</p>
+<p class="text-sm font-bold">Chlorine Dispense Cycle</p>
+<p class="text-xs text-on-surface-variant mt-xs leading-relaxed">Automated chemical balance triggered based on sensor read: ORP 650mV.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-tertiary ring-4 ring-tertiary/10"></div>
+<div class="w-px h-full bg-outline-variant/30 mt-xs"></div>
+</div>
+<div class="pb-md">
+<p class="text-xs font-bold text-on-surface-variant">08:00 AM Today</p>
+<p class="text-sm font-bold">Pump Speed Adjustment</p>
+<p class="text-xs text-on-surface-variant mt-xs leading-relaxed">Reduced to eco-mode (1200 RPM) according to daily energy schedule.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-primary ring-4 ring-primary/10"></div>
+<div class="w-px h-full bg-outline-variant/30 mt-xs"></div>
+</div>
+<div class="pb-md">
+<p class="text-xs font-bold text-on-surface-variant">04:30 AM Today</p>
+<p class="text-sm font-bold">Filtration Complete</p>
+<p class="text-xs text-on-surface-variant mt-xs leading-relaxed">6-hour overnight filtration cycle finished successfully.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-2 h-2 rounded-full bg-error ring-4 ring-error/10"></div>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface-variant">Yesterday 11:20 PM</p>
+<p class="text-sm font-bold text-error">Skimmer Alert</p>
+<p class="text-xs text-on-surface-variant mt-xs leading-relaxed">Minor blockage detected in skimmer intake. System optimized flow to compensate.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Hardware Asset Card -->
+<div class="glass-card rounded-2xl p-lg flex flex-col md:flex-row items-center gap-lg">
+<div class="w-full md:w-1/3 aspect-video rounded-xl overflow-hidden relative shadow-lg">
+<img alt="Pump Hardware" class="w-full h-full object-cover" data-alt="A macro photograph of high-end pool pump equipment and copper piping inside a clean, well-lit utility room. The metal surfaces are polished and gleam under soft, diffused architectural lighting. Water droplets on some visible piping hint at a fresh, active system. The scene is framed symmetrically to convey precision engineering and premium maintenance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByHSTjrRl_Dvxa17VwNczwW958YfWcbdAU4Kr2vu6HBkRY-EkC9laj2-ch5Jb6auR3hqg6PANhqhjhKLFA3r17CLAa37Ogt5fhIllcz_-X4rAw8otP5QJFWQkSZXdO8Mz1jAj83iSRI610wRNGhKInpT6vIl9F_9fWZ9OZQ4AossqF54p5CDSoKjOZPVae23FOPGcpkShNd73tXzG0nUPcfhlQ63BA1W_o_2tNAV-QJJuoKyb-xAwhApZaU3TT0QedzjyIBfkOxA4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
+<div class="absolute bottom-md left-md">
+<span class="bg-white/20 backdrop-blur-md px-sm py-1 rounded-full text-[10px] text-white font-bold uppercase border border-white/30">Unit #AS-9821</span>
+</div>
+</div>
+<div class="flex-1 space-y-md">
+<h4 class="font-display-lg text-headline-md">Unit Maintenance Roadmap</h4>
+<p class="text-on-surface-variant">Your Aqua-Sync controller and pump assembly are currently running at peak performance. Based on our predictive analysis, the next physical inspection is recommended in 45 days.</p>
+<div class="flex flex-wrap gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-sm font-bold">Firmware Up-to-date</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-sm font-bold">Warranty Active</span>
+</div>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-sm font-bold">Cloud Syncing Enabled</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

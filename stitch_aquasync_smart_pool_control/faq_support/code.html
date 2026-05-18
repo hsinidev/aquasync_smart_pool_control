@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aqua-Sync | Help Center &amp; FAQ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 92, 188, 0.1);
+        }
+        .ripple-effect:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-out;
+        }
+        .water-wave-bg {
+            background: linear-gradient(180deg, rgba(215, 226, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed": "#1f1c0b",
+                      "surface-tint": "#005cbc",
+                      "error": "#ba1a1a",
+                      "surface-bright": "#f9f9ff",
+                      "on-secondary-container": "#68634d",
+                      "on-tertiary-fixed": "#351000",
+                      "tertiary": "#9d3f00",
+                      "primary-fixed": "#d7e2ff",
+                      "on-surface": "#181c23",
+                      "on-tertiary-container": "#fffbff",
+                      "secondary-container": "#e8dfc5",
+                      "on-surface-variant": "#414754",
+                      "on-primary-fixed": "#001b3f",
+                      "surface-dim": "#d7dae4",
+                      "on-secondary": "#ffffff",
+                      "background": "#f9f9ff",
+                      "outline": "#717786",
+                      "tertiary-container": "#c45100",
+                      "primary-fixed-dim": "#abc7ff",
+                      "surface-container-high": "#e6e8f3",
+                      "secondary-fixed": "#ebe2c8",
+                      "tertiary-fixed": "#ffdbcc",
+                      "surface": "#f9f9ff",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb693",
+                      "on-tertiary-fixed-variant": "#7a2f00",
+                      "on-secondary-fixed-variant": "#4c4733",
+                      "surface-variant": "#e0e2ed",
+                      "surface-container-low": "#f1f3fe",
+                      "on-primary-fixed-variant": "#004590",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c1c6d7",
+                      "inverse-on-surface": "#eef0fb",
+                      "secondary": "#645e49",
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#abc7ff",
+                      "surface-container-highest": "#e0e2ed",
+                      "surface-container": "#ebedf8",
+                      "primary": "#005ab7",
+                      "primary-container": "#0072e5",
+                      "secondary-fixed-dim": "#cec6ad",
+                      "on-primary-container": "#fefcff",
+                      "on-background": "#181c23",
+                      "inverse-surface": "#2d3039"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "12px",
+                      "margin-desktop": "40px",
+                      "lg": "48px",
+                      "base": "8px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "gutter": "20px",
+                      "md": "24px",
+                      "xl": "80px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Manrope"],
+                      "headline-md": ["Manrope"],
+                      "stat-value": ["Manrope"],
+                      "headline-lg": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "label-caps": ["Manrope"],
+                      "body-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "stat-value": ["40px", {"lineHeight": "48px", "fontWeight": "300"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="h-screen w-72 flex-col fixed left-0 top-0 bg-surface-container-lowest dark:bg-surface-dim shadow-sm flex py-md px-sm z-50">
+<div class="px-md mb-xl flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">waves</span>
+<span class="font-display-lg text-headline-md font-bold text-primary dark:text-primary-fixed">Aqua-Sync</span>
+</div>
+<nav class="flex-1 space-y-xs">
+<!-- Dashboard Tab -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg transition-colors duration-200 text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<!-- Admin Tab -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg transition-colors duration-200 text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+<span class="font-body-md">Admin</span>
+</a>
+<!-- Community Tab -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg transition-colors duration-200 text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed hover:bg-surface-container-high dark:hover:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-body-md">Community</span>
+</a>
+<!-- FAQ Tab (Active) -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary dark:text-primary-fixed font-bold border-r-4 border-primary dark:border-primary-fixed bg-surface-container-high dark:bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-md">FAQ</span>
+</a>
+</nav>
+<div class="mt-auto px-md">
+<button class="w-full flex items-center justify-center gap-sm py-sm px-md bg-secondary-container text-on-secondary-container rounded-full font-bold transition-transform active:scale-[0.99] ripple-effect">
+<span class="material-symbols-outlined">settings</span>
+<span>System Settings</span>
+</button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="docked full-width top-0 h-20 sticky flex justify-between items-center px-margin-desktop w-full ml-72 max-w-[calc(100%-18rem)] bg-surface-container-lowest/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm z-40">
+<div class="flex items-center bg-surface-variant/50 px-md py-xs rounded-full w-96">
+<span class="material-symbols-outlined text-on-surface-variant mr-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-full" placeholder="Search guides, chemicals, or equipment..." type="text"/>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">thermostat</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">waves</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center border-2 border-surface overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a smiling man in a modern office environment. The lighting is bright and airy, reflecting a high-end service professional aesthetic. The background is softly blurred to keep focus on the subject, maintaining the clean, minimalist vibe of the pool management dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACOE9gnxalSMpsMktBBlICkn533CfS6ESacng5Ri1jcTssYbD_PsHSSothkp3LUU6XKSvzWfN86yYlGnjDDFKbiL14hazWlmOh_tOFXrLar-nfWWtsbcXi_SgBbYvuDkCNFXs_fUQS7KTI9xzAvXsNGToCfTDaf9sWokhDiBgjVma_sdxgn1LOdBiAoo76J8_jIUAGpL6_wMp9lKGRihS-p1x8xIrr41B4qC34qqNH10U7FbE7jRon-VdplcEAY5ZjCvp9AzVgnYY"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-72 p-margin-desktop min-h-screen water-wave-bg">
+<!-- Hero Section -->
+<section class="mb-xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-sm">How can we help today?</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Explore our knowledge base for chemical maintenance, equipment troubleshooting, and expert pool care tutorials.</p>
+</section>
+<!-- Category Bento Grid -->
+<section class="grid grid-cols-12 gap-gutter mb-xl">
+<!-- Chemical Guide (Featured) -->
+<div class="col-span-12 md:col-span-7 glass-card p-lg rounded-[2rem] flex flex-col justify-between overflow-hidden relative">
+<div class="relative z-10">
+<span class="bg-tertiary-container text-on-tertiary-container text-label-caps px-md py-xs rounded-full inline-block mb-md">ESSENTIALS</span>
+<h2 class="font-headline-lg text-headline-lg mb-sm">Chemical Dosage Guide</h2>
+<p class="text-on-surface-variant max-w-sm mb-lg">Calculate precise pH, chlorine, and alkalinity adjustments for your specific pool volume.</p>
+<button class="bg-primary text-on-primary px-lg py-md rounded-full font-bold flex items-center gap-sm w-fit ripple-effect">
+                        Open Calculator
+                        <span class="material-symbols-outlined">calculate</span>
+</button>
+</div>
+<div class="absolute right-0 bottom-0 w-1/2 h-full opacity-20 pointer-events-none">
+<img alt="Pool chemicals" class="w-full h-full object-cover" data-alt="A close-up photograph of sparkling clear pool water with sunlight refracting through the surface to create shimmering caustic patterns. The image conveys a sense of purity, balance, and luxury maintenance. The color palette is dominated by vibrant Azure and crisp whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdSfPgkxz3SIN0epkL0hbecLRve9cQFDmyQVNNTDm_ovTz19HBIeqfBkMBbGHvl6MTMWYcEoMmAECDuoRYIaz3bNNj0MmHRv6DAjJRoKTY8X0Distyf3oYeqSTdlUS5fit3HtvYoPjraxZy_9qCaTn3ktvnNUGV6EIra3ypMCT0aUnWQe183F-PQW8h9qedkuMR9A6P4dHNJpfhsI4i3qq3DAMTvgWmZGOxsCuWp9OyWiZNXbjU6asZJrz8ntrUOjWDShq_1a1Pi0"/>
+</div>
+</div>
+<!-- Maintenance Videos -->
+<div class="col-span-12 md:col-span-5 glass-card p-lg rounded-[2rem] flex flex-col items-center justify-center text-center bg-primary text-on-primary">
+<span class="material-symbols-outlined text-[64px] mb-md" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<h2 class="font-headline-md text-headline-md mb-sm">Video Tutorials</h2>
+<p class="text-primary-fixed mb-lg">Step-by-step equipment maintenance and cleaning routines.</p>
+<div class="flex -space-x-4">
+<div class="w-12 h-12 rounded-full border-4 border-primary overflow-hidden">
+<img alt="Thumbnail" data-alt="A small circular thumbnail showing a technician inspecting a pool pump system in a brightly lit outdoor setting. The scene is clean and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOsmBhzYa1dBAUd1G35rBu3LAT1JAHhDzxIsVij1rWOgeDvCJ0HBSQ7JHQSC34fhaGVNRoZbagArYF120hkYpSviZLd3djngOyY4XcPI0KR9wyMkNBiFotxWA-qFQWN5fatNBVs2W2kyJ5y0d19rSRS6jY4RQzrpsq6i9xNNfs7ako30gXTksHJ42zZosu-JdCzamq1rn5Dxc2r-GF2DiegdauP1nG5lpvTgmAD9MVCHRw7BCJAbbJdRpVN6hXDn-Kn1tY6OOmiuo"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-primary overflow-hidden">
+<img alt="Thumbnail" data-alt="A small circular thumbnail showing a pool vacuum cleaning the floor of a crystal clear swimming pool. Sunbeams illuminate the underwater scene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcypGUrNUMfdyI0TTBvRTiRPH7rky2HFm_-vyezceWwxcmli9CGDJaEMYapDIMRlKl4p5BqF6DRYOwZnnqx-DNB-j_LKMqeaUv9w8nB1Knd5W1EUlYoaCfGW1rD3WevhKFWurcAeFoqJmKPgDBv__4QeOPOIdm0IWEWlNqupCfe0vNyhlb5aHPOBDljEFk_q653ve2aBUULHjSwwoX8-rsvV0ohXABihRdnZwuysO-xS7GBpLZw5F9rAdh6h-QIb-csFmkGnqZs5w"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-primary overflow-hidden bg-surface-variant flex items-center justify-center text-primary font-bold text-xs">
+                        +12
+                    </div>
+</div>
+</div>
+<!-- Troubleshooting Grid -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="glass-card p-md rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-error-container text-on-error-container flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">build</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-xs">Pump Failures</h3>
+<p class="text-on-surface-variant text-sm">What to do when your pump makes noise or won't prime.</p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-md rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-xs">Cloudy Water</h3>
+<p class="text-on-surface-variant text-sm">Quick fixes for algae blooms and filtration issues.</p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-md rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">thermostat_auto</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold mb-xs">Heater Errors</h3>
+<p class="text-on-surface-variant text-sm">Diagnosing digital codes and ignition problems.</p>
+</div>
+</div>
+</section>
+<!-- Popular FAQ Accordion -->
+<section class="max-w-4xl mx-auto py-xl">
+<h2 class="font-headline-lg text-headline-lg mb-lg text-center">Frequently Asked Questions</h2>
+<div class="space-y-md">
+<!-- Item 1 -->
+<div class="glass-card rounded-2xl overflow-hidden">
+<div class="p-md flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="font-body-md font-bold text-on-surface">How often should I backwash my sand filter?</span>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="glass-card rounded-2xl overflow-hidden border-l-4 border-primary">
+<div class="p-md flex items-center justify-between bg-surface-container-low">
+<span class="font-body-md font-bold text-primary">What is the ideal pH range for a saltwater pool?</span>
+<span class="material-symbols-outlined text-primary rotate-180">expand_more</span>
+</div>
+<div class="px-md pb-md text-on-surface-variant animate-in fade-in slide-in-from-top-2 duration-300">
+                        The ideal pH range for any pool, including saltwater systems, is between 7.2 and 7.6. Maintaining this range ensures chlorine effectiveness and prevents skin irritation or equipment corrosion.
+                    </div>
+</div>
+<!-- Item 3 -->
+<div class="glass-card rounded-2xl overflow-hidden">
+<div class="p-md flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="font-body-md font-bold text-on-surface">Why is my chlorine level dropping so fast in summer?</span>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="glass-card rounded-2xl overflow-hidden">
+<div class="p-md flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="font-body-md font-bold text-on-surface">Can I run my pool heater overnight?</span>
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Help Banner -->
+<section class="bg-surface-container-highest rounded-[2.5rem] p-xl flex flex-col md:flex-row items-center justify-between gap-lg relative overflow-hidden">
+<div class="relative z-10 max-w-xl">
+<h2 class="font-display-lg text-headline-lg mb-sm">Still need assistance?</h2>
+<p class="text-on-surface-variant mb-lg font-body-lg">Our pool management experts are available for live chat or on-site consultation to help keep your sanctuary perfect.</p>
+<div class="flex flex-wrap gap-md">
+<button class="bg-primary text-on-primary px-lg py-md rounded-full font-bold ripple-effect">Contact Support</button>
+<button class="bg-surface-container-lowest text-primary border-2 border-primary px-lg py-md rounded-full font-bold ripple-effect">Book a Technician</button>
+</div>
+</div>
+<div class="relative w-64 h-64 z-10">
+<div class="absolute inset-0 bg-primary-container/20 rounded-full blur-3xl"></div>
+<img alt="Support Agent" class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-surface" data-alt="A friendly and professional support representative wearing a headset and smiling. The person is set against a clean, modern background with soft blue lighting accents. The image represents reliable, expert customer service and human connection within a digital pool management context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiMDG4Ql1ugCDNmDYa2XpgMLUQh9suLKh0bET8xNwTHeNw5B0fuwC-XZdLjRHIIqZYXW4Coz9t8OWpxvEFyjWUJusB4Y97j25ZTBrXmetJ9IQDNl0uQB7jWG7X-0uzGXHZOn87596bofZJI4vrl1XvgF8uPrHZ8L1JXrt_sVKdUjeiApnTLBtL4NOr9Xri89HRfAt6xvO_81b-OMt20FwxaKXKlXEMNQDHfjiORXTfc9ifFgKgvb5qjAwWZWwjh0ZJnWpHm0pSWmw"/>
+</div>
+</section>
+<footer class="mt-xl py-lg border-t border-outline-variant flex flex-col md:flex-row justify-between items-center text-on-surface-variant text-sm gap-md">
+<div>© 2024 Aqua-Sync Systems. All rights reserved.</div>
+<div class="flex gap-lg">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Service Terms</a>
+<a class="hover:text-primary transition-colors" href="#">Documentation</a>
+</div>
+</footer>
+</main>
+<!-- FAB (Suppressed for focused help navigation, but shown as "Ask AI" on this specific page) -->
+<button class="fixed bottom-margin-desktop right-margin-desktop w-16 h-16 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center ripple-effect hover:scale-105 transition-all z-50">
+<span class="material-symbols-outlined text-[32px]">psychology_alt</span>
+</button>
+</body></html>

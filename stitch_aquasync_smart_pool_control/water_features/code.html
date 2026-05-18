@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#005ab7",
+                    "on-surface-variant": "#414754",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c1c6d7",
+                    "on-tertiary-fixed": "#351000",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb693",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#004590",
+                    "surface-tint": "#005cbc",
+                    "primary-fixed": "#d7e2ff",
+                    "on-secondary-container": "#68634d",
+                    "on-surface": "#181c23",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#4c4733",
+                    "outline": "#717786",
+                    "on-primary-container": "#fefcff",
+                    "secondary": "#645e49",
+                    "surface-container": "#ebedf8",
+                    "on-primary-fixed": "#001b3f",
+                    "inverse-on-surface": "#eef0fb",
+                    "primary-container": "#0072e5",
+                    "primary-fixed-dim": "#abc7ff",
+                    "surface": "#f9f9ff",
+                    "tertiary-container": "#c45100",
+                    "on-secondary-fixed": "#1f1c0b",
+                    "surface-container-high": "#e6e8f3",
+                    "surface-variant": "#e0e2ed",
+                    "inverse-surface": "#2d3039",
+                    "surface-bright": "#f9f9ff",
+                    "tertiary-fixed": "#ffdbcc",
+                    "secondary-fixed-dim": "#cec6ad",
+                    "on-background": "#181c23",
+                    "surface-container-highest": "#e0e2ed",
+                    "error-container": "#ffdad6",
+                    "background": "#f9f9ff",
+                    "surface-dim": "#d7dae4",
+                    "on-tertiary-container": "#fffbff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#ebe2c8",
+                    "surface-container-low": "#f1f3fe",
+                    "inverse-primary": "#abc7ff",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#7a2f00",
+                    "secondary-container": "#e8dfc5",
+                    "tertiary": "#9d3f00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "xl": "80px",
+                    "sm": "12px",
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xs": "4px",
+                    "margin-desktop": "40px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "stat-value": ["Manrope"],
+                    "label-caps": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "stat-value": ["40px", {"lineHeight": "48px", "fontWeight": "300"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 90, 183, 0.1);
+        }
+        .ripple-effect:active {
+            background-image: radial-gradient(circle, rgba(0, 90, 183, 0.1) 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 1000%;
+        }
+        .timeline-slot {
+            transition: all 0.3s ease;
+        }
+        .timeline-slot:hover {
+            transform: scaleY(1.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-black/70 backdrop-blur-xl shadow-[0px_4px_30px_rgba(0,90,183,0.08)]">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="signal_wifi_4_bar">signal_wifi_4_bar</span>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Aqua-Sync</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-primary hover:bg-primary/5 transition-colors p-2 rounded-full active:scale-95 duration-200" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-screen-xl mx-auto">
+<!-- Hero Section / Title -->
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Schedules</h2>
+<p class="font-body-md text-on-surface-variant">Manage automated runs for your water features.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Water Features List (Left Column) -->
+<div class="md:col-span-4 flex flex-col gap-md">
+<h3 class="font-label-caps text-label-caps text-primary uppercase tracking-wider mb-xs">Active Features</h3>
+<!-- Feature Card 1 -->
+<div class="glass-card p-md rounded-xl flex items-center justify-between shadow-[0px_8px_32px_rgba(0,90,183,0.04)]">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="waves">waves</span>
+</div>
+<div>
+<p class="font-headline-md text-body-lg font-semibold text-on-surface">Main Waterfall</p>
+<p class="text-xs text-on-surface-variant">Next run: 2:00 PM</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Feature Card 2 -->
+<div class="glass-card p-md rounded-xl flex items-center justify-between shadow-[0px_8px_32px_rgba(0,90,183,0.04)]">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="fountain">sprinkler</span>
+</div>
+<div>
+<p class="font-headline-md text-body-lg font-semibold text-on-surface">Zen Fountain</p>
+<p class="text-xs text-on-surface-variant">Status: Idle</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Feature Card 3 -->
+<div class="glass-card p-md rounded-xl flex items-center justify-between shadow-[0px_8px_32px_rgba(0,90,183,0.04)]">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="water_drop">water_drop</span>
+</div>
+<div>
+<p class="font-headline-md text-body-lg font-semibold text-on-surface">Pool Jets</p>
+<p class="text-xs text-on-surface-variant">Scheduled: 6:00 PM</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Visual Asset -->
+<div class="mt-base rounded-2xl overflow-hidden shadow-xl aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="A luxurious backyard infinity pool with a modern waterfall feature cascading into clear blue water. The setting is a serene dusk, with soft architectural lighting glowing in azure and warm sand tones. The overall atmosphere is premium, tranquil, and modern, reflecting a high-end wellness lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAShbr8LkGPQkf0Io7B-Hey7xo0KXT1TIUIB9L396OGDdc1_J-a1A6k-U-J0oFSeSDhcl0qFHTb41e38qExAjRawqpAhIq1ruPltwxD08DZ3ZKSPTLOT6H33p2du574HBsvlhZtBPYZbb2dD2x9WZCE-2DW4zPA25axzmIl26dn5pRstxQmRfZnWxbRW6Fs_7h74Sn63ghL6P9RmHM2zktrBLr8noGfS8inFu1exvemMHNtO0ZQN0IVnjRcRwUOgTzFdOOLFgFbyc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="text-white font-semibold text-body-md">Backyard Sanctuary</span>
+</div>
+</div>
+</div>
+<!-- Scheduling Timeline View (Right Column) -->
+<div class="md:col-span-8 flex flex-col gap-md">
+<div class="glass-card p-md md:p-lg rounded-2xl shadow-[0px_12px_48px_rgba(0,90,183,0.08)]">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface">Weekly Overview</h3>
+<div class="flex bg-surface-container rounded-full p-1">
+<button class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-primary text-on-primary">Day</button>
+<button class="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-on-surface-variant">Week</button>
+</div>
+</div>
+<!-- Timeline Visualization -->
+<div class="relative min-h-[400px]">
+<!-- Hour Markers -->
+<div class="flex justify-between text-[10px] text-outline font-bold uppercase mb-md">
+<span>08:00</span>
+<span>10:00</span>
+<span>12:00</span>
+<span>14:00</span>
+<span>16:00</span>
+<span>18:00</span>
+<span>20:00</span>
+</div>
+<!-- Rows for each feature -->
+<div class="space-y-lg">
+<!-- Waterfall Row -->
+<div class="relative h-12 bg-surface-container-low rounded-lg w-full overflow-hidden">
+<div class="absolute top-0 bottom-0 left-[30%] w-[15%] bg-primary/20 border-x border-primary/40 flex items-center justify-center timeline-slot cursor-pointer">
+<span class="text-[10px] font-bold text-primary">WATERFALL</span>
+</div>
+<div class="absolute top-0 bottom-0 left-[70%] w-[10%] bg-primary/20 border-x border-primary/40 flex items-center justify-center timeline-slot cursor-pointer"></div>
+</div>
+<!-- Zen Row -->
+<div class="relative h-12 bg-surface-container-low rounded-lg w-full overflow-hidden">
+<div class="absolute top-0 bottom-0 left-[10%] w-[40%] bg-secondary/10 border-x border-secondary/20 flex items-center justify-center timeline-slot cursor-pointer">
+<span class="text-[10px] font-bold text-secondary">ZEN FOUNTAIN</span>
+</div>
+</div>
+<!-- Jets Row -->
+<div class="relative h-12 bg-surface-container-low rounded-lg w-full overflow-hidden">
+<div class="absolute top-0 bottom-0 left-[55%] w-[25%] bg-primary/40 border-x border-primary flex items-center justify-center timeline-slot cursor-pointer">
+<span class="text-[10px] font-bold text-on-primary-container">POOL JETS</span>
+</div>
+</div>
+</div>
+<!-- Vertical Current Time Line -->
+<div class="absolute top-0 bottom-0 left-[42%] w-[2px] bg-error shadow-[0_0_8px_rgba(186,26,26,0.5)] z-10 flex flex-col items-center">
+<div class="w-3 h-3 bg-error rounded-full -mt-1.5"></div>
+<span class="mt-auto text-[10px] text-error font-bold translate-y-6">NOW</span>
+</div>
+</div>
+<!-- Quick Add Button -->
+<div class="mt-lg flex justify-end">
+<button class="bg-primary text-on-primary font-bold px-md py-sm rounded-full flex items-center gap-xs hover:shadow-lg active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                            Create New Schedule
+                        </button>
+</div>
+</div>
+<!-- Secondary Info Section -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-gutter">
+<div class="glass-card p-md rounded-xl">
+<span class="material-symbols-outlined text-primary mb-xs" data-icon="schedule">schedule</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-xs">Active Duration</p>
+<p class="font-stat-value text-stat-value text-primary">5.2<span class="text-headline-md"> hrs</span></p>
+<p class="text-xs text-on-surface-variant mt-xs">Total runtime across all features today.</p>
+</div>
+<div class="glass-card p-md rounded-xl">
+<span class="material-symbols-outlined text-secondary mb-xs" data-icon="bolt">bolt</span>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-xs">Efficiency Score</p>
+<p class="font-stat-value text-stat-value text-secondary">A+</p>
+<p class="text-xs text-on-surface-variant mt-xs">Scheduling is optimized for solar peak.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-2xl shadow-[0px_-8px_32px_rgba(0,90,183,0.12)] rounded-t-xl">
+<div class="flex justify-around items-center px-4 pb-6 pt-3">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all active:scale-90 ripple-effect duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="waves">waves</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all active:scale-90 ripple-effect duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Devices</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim bg-primary-container/20 rounded-full px-4 py-1 active:scale-90 ripple-effect duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="calendar_today" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Schedules</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary transition-all active:scale-90 ripple-effect duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Settings</span>
+</div>
+</div>
+</nav>
+<!-- Floating Action Button - Only for Schedules View -->
+<button class="fixed bottom-24 right-margin-mobile w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center z-40 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</body></html>

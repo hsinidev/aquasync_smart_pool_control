@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aqua-Sync | Night Lighting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#005ab7",
+                        "on-surface-variant": "#414754",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c6d7",
+                        "on-tertiary-fixed": "#351000",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#004590",
+                        "surface-tint": "#005cbc",
+                        "primary-fixed": "#d7e2ff",
+                        "on-secondary-container": "#68634d",
+                        "on-surface": "#181c23",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#4c4733",
+                        "outline": "#717786",
+                        "on-primary-container": "#fefcff",
+                        "secondary": "#645e49",
+                        "surface-container": "#ebedf8",
+                        "on-primary-fixed": "#001b3f",
+                        "inverse-on-surface": "#eef0fb",
+                        "primary-container": "#0072e5",
+                        "primary-fixed-dim": "#abc7ff",
+                        "surface": "#f9f9ff",
+                        "tertiary-container": "#c45100",
+                        "on-secondary-fixed": "#1f1c0b",
+                        "surface-container-high": "#e6e8f3",
+                        "surface-variant": "#e0e2ed",
+                        "inverse-surface": "#2d3039",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary-fixed": "#ffdbcc",
+                        "secondary-fixed-dim": "#cec6ad",
+                        "on-background": "#181c23",
+                        "surface-container-highest": "#e0e2ed",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#d7dae4",
+                        "on-tertiary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ebe2c8",
+                        "surface-container-low": "#f1f3fe",
+                        "inverse-primary": "#abc7ff",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7a2f00",
+                        "secondary-container": "#e8dfc5",
+                        "tertiary": "#9d3f00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "margin-desktop": "40px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "stat-value": ["Manrope"],
+                        "label-caps": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "stat-value": ["40px", {"lineHeight": "48px", "fontWeight": "300"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .color-wheel-gradient {
+            background: conic-gradient(from 0deg, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+        }
+        .glass-card {
+            backdrop-filter: blur(24px);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 90, 183, 0.1);
+        }
+        .ripple-effect:active {
+            transform: scale(0.95);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-black/70 backdrop-blur-xl shadow-[0px_4px_30px_rgba(0,90,183,0.08)]">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-primary" data-icon="signal_wifi_4_bar">signal_wifi_4_bar</span>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Aqua-Sync</h1>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-primary/5 transition-colors p-2 rounded-full active:scale-95 duration-200 ease-in-out" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-screen-xl mx-auto">
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Hero Lighting Status Card -->
+<div class="md:col-span-8 glass-card rounded-xl p-md flex flex-col gap-md relative overflow-hidden h-fit">
+<div class="flex justify-between items-start z-10">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Night Lighting</h2>
+<p class="text-on-surface-variant">Atmosphere: Deep Ocean Blue</p>
+</div>
+<div class="flex items-center gap-xs bg-primary/10 text-primary px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm" data-icon="light_mode">light_mode</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Active</span>
+</div>
+</div>
+<!-- Main Color Wheel & Visualizer -->
+<div class="flex flex-col items-center justify-center py-lg relative">
+<div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full color-wheel-gradient p-2 shadow-xl flex items-center justify-center ring-8 ring-white">
+<div class="w-full h-full rounded-full bg-white flex items-center justify-center relative overflow-hidden">
+<!-- Dynamic Wave Graphic -->
+<div class="absolute inset-0 bg-primary/5"></div>
+<svg class="absolute bottom-0 w-full h-1/2 opacity-20" viewbox="0 0 1440 320">
+<path d="M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,202.7C672,224,768,224,864,208C960,192,1056,160,1152,154.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#005ab7"></path>
+</svg>
+<span class="material-symbols-outlined text-primary text-6xl" data-icon="waves">waves</span>
+</div>
+<!-- Color Picker Handle -->
+<div class="absolute top-1/4 right-1/4 w-8 h-8 bg-white border-2 border-primary rounded-full shadow-lg ring-4 ring-primary/20 cursor-pointer"></div>
+</div>
+<!-- Brightness Control -->
+<div class="w-full max-w-md mt-lg px-md">
+<div class="flex justify-between items-center mb-base">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Brightness</span>
+<span class="font-label-caps text-label-caps uppercase text-primary">85%</span>
+</div>
+<div class="relative w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-[85%] bg-primary rounded-full"></div>
+</div>
+<div class="flex justify-between mt-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="brightness_low">brightness_low</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="brightness_high">brightness_high</span>
+</div>
+</div>
+</div>
+<img class="absolute -bottom-10 -right-10 opacity-5 w-64 h-64" data-alt="Abstract water ripple pattern in a minimalist blue and azure palette. The design features geometric lines and soft gradients that evoke the serene surface of a high-end luxury pool. The aesthetic is modern, clean, and professional, reflecting the Aqua-Sync brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgHJdbpk-KuHL73VPLZh21eTZxWBjD8kjD-FdV0lXEX4iI0-layg5axJeMrrn8Bi0FUmvgD79xVsCrVNgfm-9t7Rj7KizB1qJHqM9RgR63-aT55zGI0IRUnWMdV8MGtpAl2YOsXVSyf8Q4b6CF7Q9TkLfPqAdHsWx8BV0al7yBznsoLfQWyQt6YekXJ2EGJBepmrvQYGA4Q1XfSDjo-Po1gO7Oc1S150QMaG8BgblreGVotXK3MLOOpURfc6GAmLLpYbQh9Eiper8"/>
+</div>
+<!-- Sidebar Controls -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Automation Toggle Card -->
+<div class="glass-card rounded-xl p-md shadow-[0px_8px_32px_rgba(0,90,183,0.05)]">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<span class="font-headline-md text-headline-md text-on-surface text-lg">Smart Schedule</span>
+</div>
+<div class="w-12 h-6 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+<p class="mt-base text-body-md text-on-surface-variant">Lights turn on at sunset and dim at midnight.</p>
+</div>
+<!-- Ambiance Scenes Card -->
+<div class="glass-card rounded-xl p-md grow shadow-[0px_8px_32px_rgba(0,90,183,0.05)]">
+<h3 class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest mb-md">Presets</h3>
+<div class="grid grid-cols-1 gap-sm">
+<!-- Preset: Sunset -->
+<button class="flex items-center gap-md p-sm rounded-xl bg-surface-container hover:bg-primary/10 transition-all ripple-effect text-left border border-transparent hover:border-primary/20 group">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="wb_twilight">wb_twilight</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Sunset</p>
+<p class="text-xs text-on-surface-variant">Warm oranges &amp; purples</p>
+</div>
+</button>
+<!-- Preset: Party -->
+<button class="flex items-center gap-md p-sm rounded-xl bg-surface-container hover:bg-primary/10 transition-all ripple-effect text-left border border-transparent hover:border-primary/20 group">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="celebration">celebration</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Party</p>
+<p class="text-xs text-on-surface-variant">Dynamic multi-color strobe</p>
+</div>
+</button>
+<!-- Preset: Relax -->
+<button class="flex items-center gap-md p-sm rounded-xl bg-primary/20 ring-1 ring-primary transition-all ripple-effect text-left border border-transparent group">
+<div class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined" data-icon="spa" data-weight="fill" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-primary">Relax</p>
+<p class="text-xs text-primary/70">Serene azure slow pulse</p>
+</div>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+</button>
+<!-- Preset: Moonlight -->
+<button class="flex items-center gap-md p-sm rounded-xl bg-surface-container hover:bg-primary/10 transition-all ripple-effect text-left border border-transparent hover:border-primary/20 group">
+<div class="w-12 h-12 rounded-lg bg-surface-dim flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</div>
+<div class="flex-1">
+<p class="font-bold text-on-surface">Moonlight</p>
+<p class="text-xs text-on-surface-variant">Cold white &amp; silver glow</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Visualization Grid -->
+<section class="mt-gutter grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-card rounded-xl overflow-hidden h-48 group cursor-pointer relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A photograph of a modern luxury pool at night illuminated with deep blue LED lighting. The pool is surrounded by sleek minimalist architecture and dark wet stone surfaces. The water is crystal clear with gentle ripples, and the overall atmosphere is serene and high-end, featuring professional high-key lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHVWSvu0h1GSEzG0tExMurw47Lv9hE-RwVTMz8SV0tVV8bAaM5dQO1FNXS9EkYj9XeRDWU85mI4qPyLJ-YBOxMpuB4eBaaRCWfztieFwPbryWYZtrwm6OIrPYuYUTDKo4A7A2RKT7wRAWfC5MCKhlkWo7HCs_5W0oY8oUJ2cfgqxNV6JAxhG04EoiN64aj5cMb3lJ-lYozE6BBoU85aDQ6I4zbewOBktG8yYIE_il7mx2_JF3IlHj71dQnGTV-Zh42gMkxzfSaC6E"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-md">
+<p class="text-white font-bold">Main Pool</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden h-48 group cursor-pointer relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up of a luxury spa jacuzzi at night with warm amber LED lighting glowing from beneath the water. Soft steam rises into the cool night air. The setting is minimalist and modern, characteristic of a high-end resort. The lighting creates a calm and inviting atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCPbHbVTHJHnFsZcUoU_s5KjsE2Bs1zwZ5ZS-QF3OGx5AhDN80gZs_IEZekliBMCPFZesAMXacyokm3uQ8VD2ugFro25O3-iIeC3tMhRvVjgqxWwbR1yOmXkBc1Da7X3uVZ74pUEx6tgqWVR8yP_TDbmp1_UYKq-GnUBi5Ir8BZ-vOAjmCg2wIyxkcPWvNbLXd82yrdUjHnT3I_q-CUM5VKFCI_fSaiTvcialU-WJ4xN1AZbqIw_fgw_xnE3_1Z6e022sXUIL21ow"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-md">
+<p class="text-white font-bold">Spa &amp; Hot Tub</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden h-48 group cursor-pointer relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A stunning waterfall feature of a luxury pool at night, highlighted with vibrant magenta LED lights. The water flows smoothly over a modern stone wall into the pool. The composition is artistic and focuses on the play of light and water in a contemporary outdoor living space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA53YsexMUU6M8NoDITBMmJaSR88YeOgZ50vR-9kknSQCxCq2PfQCLZntyxZmgFmDOB04oC2ON824kxObGVpFzgLXpZnk45Cp-Cp0PPuMC30PqYkcw4NV7tRTE6wg9Zia0pwhIMq4Z-TYpj6HrBv4eLb5m-6DFT3ahxGJuRPawBAw8gEY_Fi7FTewYfblPW0nxXik26JFzEKAXr-Ped5pMAk29CXW1Hj4yM5d0h-oTyKqnCmz-Cul3SowlSvPVmbHsnpGI9mMpo78"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-md">
+<p class="text-white font-bold">Water Features</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-2xl rounded-t-xl shadow-[0px_-8px_32px_rgba(0,90,183,0.12)] flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all ripple-effect active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="waves">waves</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim bg-primary-container/20 rounded-full px-4 py-1 transition-all ripple-effect active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Devices</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all ripple-effect active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Schedules</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-all ripple-effect active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

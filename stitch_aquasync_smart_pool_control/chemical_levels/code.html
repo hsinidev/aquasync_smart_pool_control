@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aqua-Sync | Chemical Levels</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#005ab7",
+                        "on-surface-variant": "#414754",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c1c6d7",
+                        "on-tertiary-fixed": "#351000",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb693",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#004590",
+                        "surface-tint": "#005cbc",
+                        "primary-fixed": "#d7e2ff",
+                        "on-secondary-container": "#68634d",
+                        "on-surface": "#181c23",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#4c4733",
+                        "outline": "#717786",
+                        "on-primary-container": "#fefcff",
+                        "secondary": "#645e49",
+                        "surface-container": "#ebedf8",
+                        "on-primary-fixed": "#001b3f",
+                        "inverse-on-surface": "#eef0fb",
+                        "primary-container": "#0072e5",
+                        "primary-fixed-dim": "#abc7ff",
+                        "surface": "#f9f9ff",
+                        "tertiary-container": "#c45100",
+                        "on-secondary-fixed": "#1f1c0b",
+                        "surface-container-high": "#e6e8f3",
+                        "surface-variant": "#e0e2ed",
+                        "inverse-surface": "#2d3039",
+                        "surface-bright": "#f9f9ff",
+                        "tertiary-fixed": "#ffdbcc",
+                        "secondary-fixed-dim": "#cec6ad",
+                        "on-background": "#181c23",
+                        "surface-container-highest": "#e0e2ed",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#d7dae4",
+                        "on-tertiary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ebe2c8",
+                        "surface-container-low": "#f1f3fe",
+                        "inverse-primary": "#abc7ff",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7a2f00",
+                        "secondary-container": "#e8dfc5",
+                        "tertiary": "#9d3f00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xs": "4px",
+                        "margin-desktop": "40px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "stat-value": ["Manrope"],
+                        "label-caps": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "stat-value": ["40px", {"lineHeight": "48px", "fontWeight": "300"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 90, 183, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 90, 183, 0.05);
+        }
+        .status-pulse {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        @keyframes pulse-glow {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .wave-container {
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-3xl shadow-[0px_4px_30px_rgba(0,90,183,0.08)]">
+<div class="flex justify-between items-center px-margin-mobile h-16 w-full max-col-screen-xl mx-auto">
+<div class="flex items-center gap-base active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-primary" data-icon="signal_wifi_4_bar">signal_wifi_4_bar</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">Aqua-Sync</h1>
+<div class="flex items-center gap-base active:scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-screen-xl mx-auto">
+<!-- Hero Status Summary -->
+<section class="relative mb-lg rounded-3xl overflow-hidden glass-card p-lg text-center">
+<div class="absolute inset-0 z-0 opacity-10 wave-container">
+<img class="w-full h-full object-cover" data-alt="Close-up of crystal clear swimming pool water with gentle ripples reflecting soft sunlight. The visual is minimalist, emphasizing high-end luxury with a palette of deep azure and sparkling whites. The atmosphere is serene and refreshing, perfectly aligning with a premium wellness brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmKIrnUqsnuXIB6uuy_m5pmzSOjSlMLWdiwSuCTyINXUWCQ5DDwylMqSeMEZQ5O1Fvxs1jCBNsc1if8CqwNLSj39HN-7dVJ4WSdcHsu7i6Z4F8SYxu1corhyVAXFvPunbZsBMMn6E5iC4QZOPxs8JeVMhwubH2yYdh6tZcldrvUxdHVVppGYQPQ-esf6mf1fmJKWVpAhDLeQ1TjGs5nN9IXuqbtyK3owI-XK3YvV1tRzu4VJ5eRLFvVN4dlKCtVlUU7jsWksBZd3E"/>
+</div>
+<div class="relative z-10">
+<div class="inline-flex items-center gap-sm bg-primary/10 px-4 py-2 rounded-full mb-base">
+<span class="h-2 w-2 rounded-full bg-primary status-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase">Water Balance: Optimal</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Daily Health Score</h2>
+<p class="font-stat-value text-stat-value text-primary">94%</p>
+</div>
+</section>
+<!-- Bento Grid for Gauges -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md mb-lg">
+<!-- pH Level Gauge -->
+<div class="glass-card rounded-[32px] p-md flex flex-col items-center justify-center min-h-[300px]">
+<div class="relative w-48 h-48 mb-md flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-variant" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552" stroke-dashoffset="140" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-stat-value text-stat-value text-on-surface">7.4</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">pH Level</span>
+</div>
+</div>
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="waves">waves</span>
+<span class="font-body-md text-body-md">Slightly Alkaline (Ideal)</span>
+</div>
+</div>
+<!-- Chlorine Level Gauge -->
+<div class="glass-card rounded-[32px] p-md flex flex-col items-center justify-center min-h-[300px]">
+<div class="relative w-48 h-48 mb-md flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-variant" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-tertiary" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552" stroke-dashoffset="400" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-stat-value text-stat-value text-on-surface">1.2</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Chlorine ppm</span>
+</div>
+</div>
+<div class="flex items-center gap-sm text-tertiary">
+<span class="material-symbols-outlined" data-icon="warning">warning</span>
+<span class="font-body-md text-body-md">Low Level Detected</span>
+</div>
+</div>
+</div>
+<!-- Alerts & Actions Section -->
+<div class="space-y-md">
+<h3 class="font-headline-md text-headline-md px-xs">System Insights</h3>
+<!-- Alert Card -->
+<div class="glass-card rounded-2xl p-md flex items-start gap-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary" data-icon="notifications_active">notifications_active</span>
+</div>
+<div class="flex-grow">
+<p class="font-body-lg text-body-lg font-semibold text-on-surface">Chlorine Depletion Warning</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Chlorine levels have dropped below 1.5ppm. Sanitize performance may be affected. Suggesting automatic dosage boost.</p>
+<div class="flex flex-wrap gap-sm">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-caps text-label-caps uppercase transition-transform active:scale-95">Boost Now</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-label-caps text-label-caps uppercase transition-transform active:scale-95">Dismiss</button>
+</div>
+</div>
+</div>
+<!-- Order Supplies Action Area -->
+<div class="relative overflow-hidden rounded-3xl p-lg bg-secondary-fixed text-on-secondary-fixed shadow-[0px_8px_24px_rgba(100,94,73,0.1)]">
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-md">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-xs">Supplies Running Low?</h3>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant">Based on your usage, we recommend ordering Liquid Chlorine and pH- within the next 5 days.</p>
+</div>
+<button class="flex items-center justify-center gap-sm bg-primary text-on-primary rounded-full px-xl py-md transition-all active:scale-95 shadow-lg group">
+<span class="material-symbols-outlined" data-icon="shopping_basket">shopping_basket</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Order Supplies</span>
+</button>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-12 -bottom-12 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-2xl px-4 pb-6 pt-3 shadow-[0px_-8px_32px_rgba(0,90,183,0.12)] flex justify-around items-center rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="waves">waves</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary bg-primary-container/20 rounded-full px-4 py-1 active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="water_drop" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Devices</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Schedules</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all active:scale-90 duration-300">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider mt-1">Settings</span>
+</div>
+</nav>
+</body></html>
